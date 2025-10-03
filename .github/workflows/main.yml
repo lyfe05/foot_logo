@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * 0'  # Run weekly on Sunday at midnight
   push:
     branches: [ main ]
-    paths: [ 'main.py' ]  # Run when main.py changes
+    paths: [ 'main.py' ]
 
 jobs:
   fetch-logos:
@@ -26,29 +26,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests beautifulsoup4
         
-    - name: Run main.py script
+    - name: Run script and save to logos.txt
       run: |
-        python main.py
-        
-    - name: Check if logos.txt was created
-      id: check_logos
-      run: |
-        if [ -f "logos.txt" ]; then
-          echo "logos_exists=true" >> $GITHUB_OUTPUT
-          echo "Logos file found"
-        else
-          echo "logos_exists=false" >> $GITHUB_OUTPUT
-          echo "Logos file not found"
-        fi
+        echo "n" | python main.py > logos.txt 2>&1
         
     - name: Commit and push logos.txt
-      if: steps.check_logos.outputs.logos_exists == 'true'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add logos.txt
         if git diff --staged --quiet; then
-          echo "No changes to commit"
+          echo "No changes to logos.txt"
         else
           git commit -m "Update football logos [$(date +%Y-%m-%d)]"
           git push
