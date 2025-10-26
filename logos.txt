@@ -18,7 +18,7 @@ Logo 3:
   Filename: barcelona.png
 ------------------------------
 Logo 4:
-  Description: Liverpool FC (LFC) (England) logo
+  Description: Liverpool (England) logo
   URL: https://football-logos.cc/logos/england/256x256/liverpool.png
   Filename: liverpool.png
 ------------------------------
@@ -5068,7 +5068,7 @@ Logo 1013:
   Filename: litex.png
 ------------------------------
 Logo 1014:
-  Description: Liverpool (Uruguay) logo
+  Description: Liverpool (LU) (Uruguay) logo
   URL: https://football-logos.cc/logos/uruguay/256x256/liverpool.png
   Filename: liverpool.png
 ------------------------------
